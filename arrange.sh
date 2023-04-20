@@ -8,14 +8,15 @@ done
 for file in files/*.txt
 do 
 	letter=${file:6:1}
-	cp "$file" "$letter"
+	lowercase_letter=${letter,,}
+	cp "$file" "$lowercase_letter"
 done
 
 for i in {a..z};
 do
 	if [ -d "$i" ]; then
 		cd "$i"
-		ls *.txt | sort | while read file; do
+		ls *[a-z].txt *[A-Z].txt | sort | while read file; do
 			cp "$file" "../files/$file"
 		done
 		cd ..
