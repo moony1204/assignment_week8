@@ -16,7 +16,7 @@ for i in {a..z};
 do
 	if [ -d "$i" ]; then
 		cd "$i"
-		ls *[a-z].txt *[A-Z].txt | sort | while read file; do
+		ls *[A-Z].txt *[a-z].txt | sort | while read file; do
 			cp "$file" "../files/$file"
 		done
 		cd ..
